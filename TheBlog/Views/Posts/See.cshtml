@@ -1,0 +1,85 @@
+﻿@model TheBlog.Models.Post
+
+@{
+    ViewBag.Title = "See";
+}
+@using TheBlog.Models;
+@using TheBlog.Controllers;
+<!DOCTYPE html>
+<html>
+<head>
+<script>
+    window.onload = function () {
+        document.getElementById(@Html.DisplayFor(modelItem => modelItem.Id)).style.height =
+                (window.innerHeight - 200) + 'px';
+    }
+
+</script>
+</head>
+<body style="background-color: #044170">
+
+    <article style="position: absolute; top: 70px; left: 0; text-align:center; width:100%">
+
+
+        <div id="currentPost" style="position:fixed;top: 50px; padding-top:50px; width: 100%; left:0;text-align:center; height: 100%;">
+            <div style="position:absolute; top:55px;right:5%">
+                <form method="get">
+                    @if (Session["IsAdmin"] != null || (Session["User"] != null && Model.UserId == Singleton.GetUser((Session["User"] as User).Username).Id))
+                    {
+                        <input id="edit" formaction="/Posts/Edit/@Html.DisplayFor(model => model.Id)" type="submit" class="controls" value="Edit" />
+                        <input id="delete" formaction="/Posts/Delete/@Html.DisplayFor(model => model.Id)" type="submit" class="controls" value="Delete" />
+
+                    }
+                    <input type="submit" class="controls" style="margin-right:16px" formaction="/Posts/Index" value="X" />
+                </form>
+
+                
+            </div>
+            <section id="@Html.DisplayFor(modelItem => modelItem.Id)" class="currentPost">
+                @Html.DisplayFor(modelItem => modelItem.Title)
+                Posted by @Session["poster"]
+                <div class="content">@Html.DisplayFor(modelItem => modelItem.Body)</div>
+                <footer>created at @Html.DisplayFor(modelItem => modelItem.Date)</footer>
+                
+                <!-- Comments on post-->
+                <ul class="comments">
+                    @if (Session["User"] != null)
+                    {
+                        <li class="comment">
+                            <div style="text-align: center; font-weight: bold; font-size: 110px">
+                                @Html.ActionLink("+", "Create", "Comments", new { pid = Model.Id }, null)
+                            </div>
+                        </li>
+                    }
+
+                    @foreach (var comment in Model.Comments)
+                    {
+                        <li class="comment">
+                            @if (Session["User"] != null && (comment.UserID == Singleton.GetUser((Session["User"] as User).Username).Id || Session["IsAdmin"] != null))
+                            {
+                                <div style="text-align: right">
+                                    <button class="controls" style="height:18px; font-size:10px; margin-bottom: 4px;">edit</button>
+                                    <button class="controls" style="height:18px; font-size:10px; margin-bottom: 4px;">delete</button>
+                                </div>
+                            }
+                            <div class="content">
+                                @Html.Raw(comment.Body.ToString())
+                            </div>
+
+                            
+
+                            <footer>-@Html.Raw(comment.Name.ToString())</footer>
+                        </li>
+                    }
+                </ul>
+
+            </section>
+        </div>
+
+        <!--p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p-->
+    </article>
+</body>
+</html>

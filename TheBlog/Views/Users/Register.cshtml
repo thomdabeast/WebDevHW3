@@ -1,0 +1,47 @@
+﻿@model TheBlog.Models.User
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<body style="text-align:center">
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div style="text-align:center; position:absolute; top:150px">
+            @if (Session["errors"] != null)
+            {
+                <h1 style="color:red">@Session["errors"].ToString()</h1>
+                <hr />
+            }
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.EditorFor(model => model.Username, new { @class = "form-control", @pattern = ".{1,}" })
+                @Html.ValidationMessageFor(model => model.Username, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+
+                @Html.PasswordFor(model => model.Password, new { @class = "form-control", @pattern = ".{8,}" })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                <small>At least 8 letters long</small>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Create" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+    </body>

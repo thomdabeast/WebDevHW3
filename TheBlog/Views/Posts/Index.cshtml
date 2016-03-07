@@ -1,0 +1,47 @@
+﻿@using TheBlog.Models;
+@model IEnumerable<Post>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+    
+    <article id="holder" style="position: absolute; top: 70px; left: 0; text-align:center; width:100%">
+        
+
+
+        <div id="posts">
+            
+                
+                
+            <form style="display:inline" id="form" method="get">
+                @if (Session["User"] != null)
+                {
+                    <section class="post" style="font-size:100px;text-align:center;">@Html.ActionLink("+", "Create")</section>
+                }
+                @foreach (var item in Model)
+                {
+                    <section id="@Html.DisplayFor(modelItem => item.Id)" class="post" onclick="selectedPost(this)">
+                        @Html.DisplayFor(modelItem => item.Title)
+                        <div class="content">@Html.DisplayFor(modelItem => item.Body)</div>
+
+                        <footer>
+                            <small>
+                                made by @Html.DisplayFor(modelItem => item.User.Username)
+                                <div>@((DateTime.Now - item.Date).Minutes) minutes ago</div>
+                            </small>
+                        </footer>
+                    </section>
+
+                }
+            </form>
+        </div>
+    </article>
+</body>
+</html>

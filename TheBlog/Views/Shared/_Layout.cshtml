@@ -1,0 +1,38 @@
+﻿@using TheBlog.Models;
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+@Styles.Render("~/Content/blog.css")
+@Scripts.Render("~/Scripts/blog.js")
+    <style>
+
+    </style>
+</head>
+<body>
+    <header id="header" style="text-align: center; z-index:10">
+        <section style="margin: 10px; display: inline-block; float: left;">@Html.ActionLink("THE BLOG", "Index", "Posts")</section>
+        <nav id="holder" style="float: right; margin-right: 12px; ">
+        <ul id="settings" style="list-style-type: none">
+            @if (Session["User"] != null)
+            {
+                <li class="setting">@Html.ActionLink(((User)Session["User"]).Username.ToString(), "Index", "Users")</li>
+            }
+            else
+            {
+                <li class="setting">@Html.ActionLink("Log in", "Login", "Users")</li>
+                <li class="setting">@Html.ActionLink("Register", "Register", "Users")</li>
+            }
+            
+        </ul>
+        </nav>
+    </header>
+    <div class="container body-content">
+        @RenderBody()
+        
+        
+    </div>
+</body>
+</html>

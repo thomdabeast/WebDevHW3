@@ -1,0 +1,198 @@
+html {
+	font-family: courier,arial;
+}
+
+body {
+  background: red; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
+}
+
+.currentPost::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #7004e8;
+}
+
+.currentPost::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: rgba(0,0,0,0);
+}
+.currentPost::-webkit-scrollbar-thumb
+{
+	background-color: #45be56;
+}
+
+.content::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
+	background-color: #006F2B;
+}
+
+.content::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: rgba(0,0,0,0);
+}
+.content::-webkit-scrollbar-thumb
+{
+	background-color: #45be56;
+}
+
+#holder::-webkit-scrollbar-thumb
+{
+	border-radius: 5px;
+	background-color: #260FB5;
+}
+
+.post {
+		text-align:left;
+		overflow: hidden;
+		display: inline-block;
+		margin: 20px;
+		padding: 9px;
+		width: 200px;
+		height: 200px;
+		background-color: #861dfd;
+		color: #45be56;
+		font-size: 20px;
+		box-shadow: 0 6px 5px #09013F;
+	}
+	
+	.post:hover {
+		box-shadow: 0 13px 10px #09013F;
+		margin: 10px 20px;
+	}
+	
+	.currentPost {
+		text-align:left;
+		overflow: auto;
+		display: inline-block;
+		padding: 26px;
+		width: 90%;
+		height: 500px;
+		background-color: #861dfd;
+		color: #45be56;
+		font-size: 20px;
+	}
+	
+	.content {
+		margin-top: 8px;
+		border: 4px inset #7004e8; 
+		padding: 4px; 
+		height: 100px;
+		word-wrap: break-word;
+		overflow: hidden;
+	}
+	
+	footer {
+		text-align: right;
+        width: 100%;
+	}
+	
+	header {
+		font-weight: bold;
+		font-size: 32px;
+		background-color: #861dfd;
+		color: #45be56;
+		height: 50px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+	}
+
+    header a {
+        text-decoration: none;
+    }
+	
+	ul {
+		margin: 0;
+	}
+	
+	li {
+		display: inline-block;
+		padding: 9px;
+	}
+	
+	li a {
+		display:inline;
+		margin: 0;
+		padding: 0;
+		text-decoration: none;
+        color: #45be56;
+	}
+
+    div > a {
+        display: block;
+        width: 200px;
+        height: 200px;
+        color: #45be56;
+    }
+
+    .post a {
+        display:block;
+        color: #45be56;
+        text-decoration: none;
+    }
+
+    a {
+        width: 200px;
+        height: 200px;
+    }
+
+	a:visited { 
+    color: #45be56;
+}
+	
+	.comments {
+		color: #45ef86;
+		display: inline;
+        padding: 0px;
+	}
+	
+	.comment {
+		margin: 14px;
+		box-shadow: 6px 6px 10px #06012A;
+		overflow: hidden;
+		background: #007F2B;
+		display: inline-block;
+		width: 200px;
+		height: 200px;
+		padding: 4px;
+	}
+
+    .comment:hover {
+		box-shadow: 10px 10px 18px #06012A;
+        margin: 0px 14px;
+    }
+	
+	.comment .content {
+		overflow: auto;
+		padding: 5px;
+		margin: 0;
+		border: 3px inset #9AFFBC;
+		height: 90px;
+	}
+    .comment footer {
+        margin: 0;
+        display: inline;
+    }
+
+	.controls {
+
+		height: 34px;
+		font-size: 26px;
+		margin: 0;
+		background: #007F2B;
+		border: 2px outset #9AFFBC;
+		color: #00213B;
+	}
+	
+	.controls:hover {
+		border: 2px inset #9AFFBC;
+	}
+
