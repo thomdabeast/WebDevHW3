@@ -9,9 +9,32 @@
 <html>
 <head>
 <script>
+    var holder;
+
     window.onload = function () {
         document.getElementById(@Html.DisplayFor(modelItem => modelItem.Id)).style.height =
                 (window.innerHeight - 200) + 'px';
+
+        adjustments();
+    }
+
+    window.onresize = adjustments;
+
+    function adjustments() {
+        if (window.innerWidth <= 550) {
+            if (document.getElementById('holder')) {
+                holder = document.getElementById('holder');
+                document.getElementById("header").removeChild(holder);
+                document.getElementById("header").children[0].style.float = 'none';
+            }
+        }
+        else {
+            if (!document.getElementById('holder')) {
+                document.getElementById("header").appendChild(holder);
+                document.getElementById("header").children[0].style.float = 'left';
+
+            }
+        }
     }
 
 </script>
@@ -22,7 +45,7 @@
 
 
         <div id="currentPost" style="position:fixed;top: 50px; padding-top:50px; width: 100%; left:0;text-align:center; height: 100%;">
-            <div style="position:absolute; top:55px;right:5%">
+            <div style="position:absolute; top:8px;right:0">
                 <form method="get">
                     @if (Session["IsAdmin"] != null || (Session["User"] != null && Model.UserId == Singleton.GetUser((Session["User"] as User).Username).Id))
                     {

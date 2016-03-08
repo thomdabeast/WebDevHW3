@@ -28,18 +28,18 @@ function createYellows() {
 			var username = document.createElement('section');
 			username.innerHTML = links[0];
 			username.className = 'post';
-			username.style.background = '#FFD426';
+			username.style.background = '#6CF251';
 			username.style.textAlign = 'center';
 			username.style.fontSize = '26px';
-			username.style.color = "#775F00";
+			username.style.color = "#021C40";
 			
 			if (links.length > 1) {
 			    var signing = document.createElement('section');
 			    signing.innerHTML = links[1];
 			    signing.className = 'post';
-			    signing.style.background = '#FFD426';
+			    signing.style.background = '#6CF251';
 			    signing.style.textAlign = 'center';
-			    signing.style.color = "#775F00";
+			    signing.style.color = "#021C40";
 			}
 			if (links.length > 1) {
 			    parent.insertBefore(signing, parent.firstChild);

@@ -3,17 +3,13 @@ html {
 }
 
 body {
-  background: red; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(left top, red, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(bottom right, red, yellow); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(bottom right, red, yellow); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to bottom right, red, yellow); /* Standard syntax */
+  background: #52BDF2;
 }
 
 .currentPost::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	background-color: #7004e8;
+	background-color: #6CF251;
 }
 
 .currentPost::-webkit-scrollbar
@@ -23,13 +19,13 @@ body {
 }
 .currentPost::-webkit-scrollbar-thumb
 {
-	background-color: #45be56;
+	background-color: #0CD211;
 }
 
 .content::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.1);
-	background-color: #006F2B;
+	background-color: #62DDF2;
 }
 
 .content::-webkit-scrollbar
@@ -39,7 +35,7 @@ body {
 }
 .content::-webkit-scrollbar-thumb
 {
-	background-color: #45be56;
+	background-color: #021C40;
 }
 
 #holder::-webkit-scrollbar-thumb
@@ -56,8 +52,8 @@ body {
 		padding: 9px;
 		width: 200px;
 		height: 200px;
-		background-color: #861dfd;
-		color: #45be56;
+		background-color: #6CF251;
+		color: #021C40;
 		font-size: 20px;
 		box-shadow: 0 6px 5px #09013F;
 	}
@@ -74,14 +70,14 @@ body {
 		padding: 26px;
 		width: 90%;
 		height: 500px;
-		background-color: #861dfd;
-		color: #45be56;
+		background-color: #6CF251;
+		color: #021C40;
 		font-size: 20px;
 	}
 	
 	.content {
 		margin-top: 8px;
-		border: 4px inset #7004e8; 
+		border: 4px inset #6CA651; 
 		padding: 4px; 
 		height: 100px;
 		word-wrap: break-word;
@@ -96,8 +92,8 @@ body {
 	header {
 		font-weight: bold;
 		font-size: 32px;
-		background-color: #861dfd;
-		color: #45be56;
+		background-color: #6CF251;
+		color: #FF7D40;
 		height: 50px;
 		position: fixed;
 		top: 0;
@@ -123,19 +119,19 @@ body {
 		margin: 0;
 		padding: 0;
 		text-decoration: none;
-        color: #45be56;
+        color: #FF7D40;
 	}
 
     div > a {
         display: block;
         width: 200px;
         height: 200px;
-        color: #45be56;
+        color: #021C40;
     }
 
     .post a {
         display:block;
-        color: #45be56;
+        color: #FF7D40;
         text-decoration: none;
     }
 
@@ -145,11 +141,11 @@ body {
     }
 
 	a:visited { 
-    color: #45be56;
+    color: #021C40;
 }
 	
 	.comments {
-		color: #45ef86;
+		color: #021C40;
 		display: inline;
         padding: 0px;
 	}
@@ -158,7 +154,7 @@ body {
 		margin: 14px;
 		box-shadow: 6px 6px 10px #06012A;
 		overflow: hidden;
-		background: #007F2B;
+		background: #40C1FF;
 		display: inline-block;
 		width: 200px;
 		height: 200px;
@@ -187,7 +183,7 @@ body {
 		height: 34px;
 		font-size: 26px;
 		margin: 0;
-		background: #007F2B;
+		background: #40C1FF;
 		border: 2px outset #9AFFBC;
 		color: #00213B;
 	}
