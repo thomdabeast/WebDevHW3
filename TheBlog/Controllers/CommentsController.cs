@@ -34,6 +34,37 @@ namespace TheBlog.Controllers
             return RedirectToAction("See", "Posts", new { id = p.PostID });
         }
 
+        [AcceptVerbs("GET")]
+        public ActionResult Edit(int id)
+        {
+            return View(Singleton.models.Comments.FirstOrDefault(x => x.Id == id));
+        }
+
+        [AcceptVerbs("POST")]
+        public ActionResult Edit(Comment c)
+        {
+            Comment temp = Singleton.GetComment(c.Id);
+            string body = c.Body;
+            c = temp;
+            c.Body = body;
+
+            Singleton.models.Comments.Remove(temp);
+            Singleton.models.SaveChanges();
+            Singleton.models.Comments.Add(c);
+            Singleton.models.SaveChanges();
+            return RedirectToAction("See", "Posts", new { id = c.PostID });
+        }
+
+        public ActionResult Delete(int id)
+        {
+            Comment c = Singleton.GetComment(id);
+            int postId = c.PostID;
+
+            Singleton.models.Comments.Remove(c);
+            Singleton.models.SaveChanges();
+            return RedirectToAction("See", "Posts", new { id = postId });
+        }
+
         private int IncrementId()
         {
             if (Singleton.models.Comments.Count() > 0)

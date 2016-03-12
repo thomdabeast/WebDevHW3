@@ -24,5 +24,10 @@ namespace TheBlog.Controllers
         {
             return id.HasValue ? models.Users.Where(x => (x.Id == id)).First() : new User() { Id = -1 };
         }
+
+        public static Comment GetComment(int? id)
+        {
+            return id.HasValue ? models.Comments.Where(x => (x.Id == id)).First() : new Comment() { Id = -1 };
+        }
     }
 }

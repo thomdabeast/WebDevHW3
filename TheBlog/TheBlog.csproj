@@ -290,6 +290,7 @@
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\Posts\See.cshtml" />
     <Content Include="Views\Comments\Create.cshtml" />
+    <Content Include="Views\Comments\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

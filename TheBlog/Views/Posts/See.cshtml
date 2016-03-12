@@ -81,8 +81,8 @@
                             @if (Session["User"] != null && (comment.UserID == Singleton.GetUser((Session["User"] as User).Username).Id || Session["IsAdmin"] != null))
                             {
                                 <div style="text-align: right">
-                                    <button class="controls" style="height:18px; font-size:10px; margin-bottom: 4px;">edit</button>
-                                    <button class="controls" style="height:18px; font-size:10px; margin-bottom: 4px;">delete</button>
+                                    <button class="controls" style="height:18px; font-size:10px; margin-bottom: 4px;">@Html.ActionLink("edit", "Edit", "Comments", new { id = comment.Id }, new { })</button>
+                                    <button class="controls" style="height:18px; font-size:10px; margin-bottom: 4px;">@Html.ActionLink("delete", "Delete", "Comments", new { id = comment.Id }, new { })</button>
                                 </div>
                             }
                             <div class="content">
